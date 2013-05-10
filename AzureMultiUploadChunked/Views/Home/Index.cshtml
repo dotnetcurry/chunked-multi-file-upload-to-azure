@@ -1,0 +1,29 @@
+﻿@model AzureBlobChunkedFileUpload.Models.CloudFilesModel
+@{
+    ViewBag.Title = "Azure Blog Storage Viewer";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                For more .NET and MVC Tutorials visit
+                <a href="http://www.dotnetcurry.com" title="DotNetCurry.com">http://www.dotnetcurry.com</a>.
+            </p>
+        </div>
+    </section>
+}
+<h3>Current Files</h3>
+<ul>
+    @foreach (var item in Model.Files)
+    {
+        <li>
+            <a href="@item.URL">@item.FileName</a> (@item.Size bytes)
+        </li>
+    }
+</ul>
+@Html.ActionLink("Upload Another File", "UploadFile")
+

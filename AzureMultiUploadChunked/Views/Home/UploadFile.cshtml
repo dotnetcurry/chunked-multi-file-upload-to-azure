@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "UploadFile";
+}
+
+<h1>Upload Multiple File to Azure Blob Storage</h1>
+
+<input type="file" id="selectFile" name="selectFile" multiple="multiple" />
+<input type="submit" name="fileUpload" id="fileUpload" value="Upload" />
+<ul data-bind="foreach: uploaderCollection">
+    <li style="list-style:none">
+        <div class="progressBar" style="width: 50%; height: 20px; background-color: grey" 
+            data-bind="attr: { id: 'progressBar' + fileIndex }"></div>
+        <label data-bind="attr: { id: 'statusMessage' + fileIndex }"></label>
+    </li>
+</ul>
+@section Scripts{
+    <script src="~/Scripts/knockout-2.2.0.debug.js"></script>
+    <script src="~/Scripts/multi-image-uploader.js"></script>
+}
